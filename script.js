@@ -1,39 +1,37 @@
-const clicker = document.querySelector("#changer")
-const docs=document.querySelector("#doc")
-clicker.addEventListener("click", backgroundChange);
+const quotes = [
+  "The greatest glory in living lies not in never falling, but in rising every time we fall. ",
+  "The way to get started is to quit talking and begin doing. ",
+  "If life were predictable it would cease to be life, and be without flavor. ",
+  "Your time is limited, don't waste it living someone else's life. ",
+  "Life is what happens when you're busy making other plans."
+];
 
-const colors = ['blue', 'red', 'black', 'purple'];
+function changeBackgroundAndQuote() {
+   
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  
+ 
+  const randomQuote = quotes[randomIndex];
+  
 
-// const person = {
-//     FirstName = toib
+  document.body.style.backgroundColor = getRandomColor();
+  
+ 
+  document.getElementById('quote').textContent = randomQuote;
+}
 
-// }
+function getRandomColor() {
+  
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  
+  
+  const color = `rgb(${r}, ${g}, ${b})`;
+  
+  return color;
+}
 
-function backgroundChange() {
-    docs.style.height = ("100vh")
-    docs.style.width = ("100%");
-    
-    color = colors.shift();
-    colors.push(color);
-    docs.style.backgroundColor = color;
-    //console.log(color);
-    const blueQuote = document.querySelector("#blue-quote");
-
-    if (color='blue') {
-        const blueQuote = document.querySelector("#blue-quote");
-        blueQuote.style.display = ("flex");
-        console.log(color);
-    } else {
-        blueQuote.style.display = ("none");
-    }
-     if (color='red') {
-         const blueQuote = document.querySelector("#blue-quote")
-         blueQuote.style.display = ("none");
-         console.log(color);
-     }else{
-         blueQuote.style.display = ("none");
-    }
-    console.log(blueQuote);
-
-
-} 
+ 
+const changeButton = document.getElementById('changeButton');
+changeButton.addEventListener('click', changeBackgroundAndQuote);
