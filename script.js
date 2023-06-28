@@ -16,6 +16,7 @@ function changeBackgroundAndQuote() {
   document.getElementById("quote").textContent = randomQuote;
 }
 
+
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
